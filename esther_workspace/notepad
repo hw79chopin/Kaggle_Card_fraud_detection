@@ -1,0 +1,36 @@
+Insights:
+1. Fraud의 경우 1단위 금액이 많음.
+2. Fraud의 경우 같은 금액이 계속 왔다갔다 거리는 경우가 많음.
+
+card1: card info?
+card2: issue bank?
+card5: country?
+
+To drop:
+addr2
+dist1
+dist2
+emaildomains
+
+[isFraud]
+1. isFraud == 1: 20663
+2. isFraud == 0: 569877
+
+[TransactionAmt]
+1. non-Fraud data & whole data --> similar distribution,
+2. Fraud data has a bit different distribution.
+    - smaller std
+    - smaller(1/5 times) max value
+3. Total TransactionAmt
+    - Total: 79738948.735
+    - isFraud: 3083844.8599999994 (about 3.86%)
+    - nonFraud: 76655103.87499997
+
+[card4 (card type)]
+1. 1577 NaNs
+2. Correlation with isFraud:
+    - Significantly trivial correlations
+
+[card5 (country?)]
+1. 4259 NaNs
+2. top 3(card5, freq): (226, 8753), (224, 3152), (102, 1832)
