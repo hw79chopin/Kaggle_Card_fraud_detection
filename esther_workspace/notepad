@@ -34,3 +34,10 @@ emaildomains
 [card5 (country?)]
 1. 4259 NaNs
 2. top 3(card5, freq): (226, 8753), (224, 3152), (102, 1832)
+
+
+
+8/10
+1. add null/non-null column
+2. run profiling
+3. run model (ensemble)
