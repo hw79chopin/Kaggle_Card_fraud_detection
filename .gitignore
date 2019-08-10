@@ -107,5 +107,3 @@ venv.bak/
 ##### files
 # big files and directories
 ieee-fraud-detection/
-'Pandas profiling_Id_train'
-'Pandas profiling_tns_train'
