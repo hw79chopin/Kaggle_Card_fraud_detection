@@ -5,6 +5,7 @@ Insights:
 card1: card info?
 card2: issue bank?
 card5: country?
+** card1~card6가 모두 일치해야 동일 카드로 취급.
 
 To drop:
 addr2
