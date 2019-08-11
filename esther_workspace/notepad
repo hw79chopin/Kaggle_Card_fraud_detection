@@ -39,5 +39,17 @@ emaildomains
 
 8/10
 1. add null/non-null column
-2. run profiling
+2. profiling
+    - until V
 3. run model (ensemble)
+
+** Balancing the data **  (imblearn)
+Even out Fraud/NonFraud ratio in training set
+
+1. Oversampling
+SMOTE
+
+2. Downsampling
+RandomSampling
+
+--> dropping rows in Non-Fraud: criteria??
