@@ -1,0 +1,64 @@
+1. TransactionAmt
+- 소숫점 이하 자릿수 15자리 이상 여부에 대한 boolean 컬럼 생성.
+- 반복 거래(card1~6정보와 TransactionAmt, ProductCD가 일치하는 거래)에 대해 'repeated' 컬럼 생성.
+    * value: 해당 카드의 전체 거래건수 대비 반복 거래 비율
+
+
+2. ProductCD
+- dummy columns 생성.
+
+
+3. card1
+
+
+4. card2
+- imputation: card2_na 컬럼 생성.
+
+
+5. card3
+- imputation: random sampling
+- 국가 정보라는 가정.
+
+
+6. card4
+- imputation: random sampling
+- 사실상 의미 없을 것으로 예상.
+
+
+7. card5
+- imputation: random sampling
+- card5 value별 전체 거래 대비 사기거래 비율을 표시하는 컬럼 생성.
+
+
+8. card6
+- imputation: random sampling
+- card6 value별 전체 거래 대비 사기거래 비율을 표시하는 컬럼 생성.
+
+
+9. addr1
+- 지역 정보라는 가정.
+- imputation: addr1_na 컬럼 생성. (nan이 오직 사기거래서만 나타남)
+
+
+10. addr2
+- 국가 정보라는 가정.
+- imputation: random sampling
+- addr2 value별 전체 거래 대비 사기거래 비율을 표시하는 컬럼 생성.
+
+
+11. dist1
+- imputation: dist1_na 컬럼 생성.
+
+
+12. dist2
+- imputation: dist2_na 컬럼 생성.
+
+
+13. P_emaildomain, R_emaildomain
+- discard
+
+
+14. C1~14
+- 각 컬럼에 대해, value별 전체 거래 대비 사기거래 비율을 표시하는 컬럼 생성.
+
+15. PCA on C1~C14_fraud_ratio 
