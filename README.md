@@ -3,6 +3,14 @@ Ybigta Team project
 
 final data : final_train_merged.csv, final_test_merged.csv, pca_test_all_c_fraud.csv
 
+# 데이터 전처리 과정
+##TransactionAmt_log
+기존 Amt 분포가 심하게 skewed 되어 있어서 outlier을 제거한 후 Log scale로 변환 하였다.
+##TransactionDT
+첫번째 시간이 86400으로 나왔다. 즉 86400=24*60*60 이므로 하루를 초로 나타낸 단위이다. 따라서 이것을 이용해 시간, 분, 날짜, 요일을 알아내었다.
+##c_fraud
+나라별로 시차가 있어 hour 변수가 다를 테니 나라별 시간별 사기비율을 만들었다.
+
 # 활용 기법 및 개념들
 
 ## Smote
