@@ -93,7 +93,7 @@ PCA는 데이터의 분산(variance)을 최대한 보존하면서 서로 직교�
 PCA는 서로 직교하는 새 기저로 데이터를 변환하기 때문에 변수 간 상관관계가 높은 데이터에 효과가 좋다고 합니다. 데이터 차원축소, 압축에 널리 쓰이고 있습니다.
 
 #### python example
-~~~
+
 ```python
 >>> import numpy as np
 >>> from sklearn.decomposition import PCA
@@ -107,8 +107,7 @@ PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
 >>> print(pca.singular_values_)  
 [6.30061... 0.54980...]
 ```
-~~~
-~~~
+
 ```python
 >>> pca = PCA(n_components=2, svd_solver='full')
 >>> pca.fit(X)                 
@@ -119,8 +118,7 @@ PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
 >>> print(pca.singular_values_)  
 [6.30061... 0.54980...]
 ```
-~~~
-~~~
+
 ```python
 >>> pca = PCA(n_components=1, svd_solver='arpack')
 >>> pca.fit(X)  
@@ -131,7 +129,6 @@ PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
 >>> print(pca.singular_values_)  
 [6.30061...]
 ```
-~~~
 
 ##### Reference
 https://ratsgo.github.io/machine%20learning/2017/04/24/PCA/
