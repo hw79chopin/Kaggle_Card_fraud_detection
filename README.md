@@ -52,7 +52,6 @@ print('After OverSampling, the shape of train_y: {} \n'.format(y_train_res.shape
 print("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
 print("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
 ```
-~~~
 
 ##### Reference
 https://mkjjo.github.io/python/2019/01/04/smote_duplicate.html
