@@ -4,6 +4,7 @@ Ybigta Team project
 final data : final_train_merged.csv, final_test_merged.csv, pca_test_all_c_fraud.csv
 
 # 데이터 전처리 과정
+
 ## TransactionAmt_log
 기존 Amt 분포가 심하게 skewed 되어 있어서 outlier을 제거한 후 Log scale로 변환하였다.
 
