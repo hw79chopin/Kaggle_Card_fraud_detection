@@ -47,9 +47,9 @@ P_emaildomain이 NA가 아닌 경우 P_emaildomain 값을 취하고, NA인 경�
 이후 카테고리형을 보정하기 위해 dummify하여 one-hot encoding 하고, 컬럼 정보를 축약하기 위해 PCA를 진행하였다.
 PCA 처리를 할 때에는 train set과 test set을 concatenate하여 한번에 PCA 처리 한 뒤 다시 train set과 test set으로 분리하였다.
 
-## C1~14
-C1~14의 14개 컬럼 값을 전부 이어붙이 컬럼 C를 생성하여, 각 C 값을 일종의 식별자로 취급하고 수치값 카운트 값을 value로 갖는 새로운 컬럼 C_count를 생성하였다.
-마찬가지로 C1~14 각 컬럼에 대해 수치값의 카운트 값을 value로 갖는 새로운 컬럼 C*n*\_count를 생성하였다.
+## C1~C14
+C1부터 C14의 14개 컬럼 값을 전부 이어붙이 컬럼 C를 생성하여, 각 C 값을 일종의 식별자로 취급하고 수치값 카운트 값을 value로 갖는 새로운 컬럼 C_count를 생성하였다.
+마찬가지로 C1~C14 각 컬럼에 대해 수치값의 카운트 값을 value로 갖는 새로운 컬럼 C*n*\_count를 생성하였다.
 
 ## D, M
 NA가 높은 비율로 나타나기 때문에 NA 여부에 대한 binary 컬럼을 생성하였다.
