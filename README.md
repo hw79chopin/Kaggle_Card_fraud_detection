@@ -5,13 +5,54 @@ final data : final_train_merged.csv, final_test_merged.csv, pca_test_all_c_fraud
 
 # 데이터 전처리 과정
 ## TransactionAmt_log
-기존 Amt 분포가 심하게 skewed 되어 있어서 outlier을 제거한 후 Log scale로 변환 하였다.
+기존 Amt 분포가 심하게 skewed 되어 있어서 outlier을 제거한 후 Log scale로 변환하였다.
+
+## TransactionAmt_residue
+Fraud 거래에서 TransactionAmt가 소숫점 이하 자릿수 15자리 이상인 경우가 많이 나타나는 점에 착안하여, 소숫점 이하 자릿수 15자리 이상의 여부에 대한 boolean 컬럼을 생성하였다.
+
+## repeated
+card1~6 정보가 모두 일치하는 경우를 동일 카드로 간주, 카드 정보와 TransactionAmt, ProductCD가 일치하는 거래를 동일 거래로 취급한다. 이를 바탕으로 각 거래의 반복 횟수를 값으로 갖는 새로운 컬럼 repeated를 생성하였다.
 
 ## TransactionDT
 첫번째 시간이 86400으로 나왔다. 즉 86400=24*60*60 이므로 하루를 초로 나타낸 단위이다. 따라서 이것을 이용해 시간, 분, 날짜, 요일을 알아내었다.
 
 ## c_fraud
 나라별로 시차가 있어 hour 변수가 다를 테니 나라별 시간별 사기비율을 만들었다.
+
+## ProductCD
+Dummy 컬럼들을 생성하여 카테고리형인 ProductCD를 one-hot encoding 하였다.
+
+## card1_count, card3_count, card5_count, card6_count
+수치형 데이터이지만 사실상 각 수치가 식별자 역할을 하는 카테고리형 변수이기 때문에, 각 수치값의 카운트 값을 value로 갖는 새로운 컬럼 card*n*\_count를 생성하였다.
+card3와 card5는 카테고리형 변수를 보정하기 위해 dummify하여 one-hot encoding 처리하였다.
+card3의 경우 국가 정보라는 가정을 하였다.
+
+## card2_na
+NA가 높은 비율로 나타나기 때문에 NA 여부에 대한 binary 컬럼을 생성하였다.
+
+## card4
+Random sampling으로 null value를 imputation하였다.
+
+## addr1
+지역 정보라는 가정 하에, NA 여부에 대한 binary 컬럼을 생성하였다. 
+
+## addr2
+국가 정보라는 가정 하에, random sampling으로 null value를 imputation하고 수치값의 카운트 값을 value로 갖는 새로운 컬럼 addr2_count를 생성하였다. 이후 dummify하여 one-hot encoding 처리하였다. 
+
+## dist1, dist2
+NA가 높은 비율로 나타나기 때문에 NA 여부에 대한 binary 컬럼을 생성하였다.
+
+## P_emaildomain, R_emaildomain
+P_emaildomain이 NA가 아닌 경우 P_emaildomain 값을 취하고, NA인 경우 R_emaildomain 값을 취함으로써 두 변수의 정보를 합쳤다. 이후 여전히 NA인 경우는 random sampling으로 imputation 처리하였다.
+이후 카테고리형을 보정하기 위해 dummify하여 one-hot encoding 하고, 컬럼 정보를 축약하기 위해 PCA를 진행하였다.
+PCA 처리를 할 때에는 train set과 test set을 concatenate하여 한번에 PCA 처리 한 뒤 다시 train set과 test set으로 분리하였다.
+
+## C1~14
+C1~14의 14개 컬럼 값을 전부 이어붙이 컬럼 C를 생성하여, 각 C 값을 일종의 식별자로 취급하고 수치값 카운트 값을 value로 갖는 새로운 컬럼 C_count를 생성하였다.
+마찬가지로 C1~14 각 컬럼에 대해 수치값의 카운트 값을 value로 갖는 새로운 컬럼 C*n*\_count를 생성하였다.
+
+## D, M
+NA가 높은 비율로 나타나기 때문에 NA 여부에 대한 binary 컬럼을 생성하였다.
 
 # 활용 기법 및 개념들
 
