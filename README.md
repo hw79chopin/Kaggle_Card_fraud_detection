@@ -3,6 +3,11 @@ Ybigta Team project
 
 final data : final_train_merged.csv, final_test_merged.csv, pca_test_all_c_fraud.csv
 
+# 목차
+1. 데이터 전처리 과정
+2. 활용 기법 및 개념
+3. 한계와 
+
 # 데이터 전처리 과정
 
 ## Identification File
@@ -69,6 +74,9 @@ C1부터 C14의 14개 컬럼 값을 전부 이어붙이 컬럼 C를 생성하여
 
 ## D, M
 NA가 높은 비율로 나타나기 때문에 NA 여부에 대한 binary 컬럼을 생성하였다.
+
+## V
+최대한의 정보를 추출하기 위해 NaN의 존재 여부와 사기의 상관관계, 값 자체와 사기의 상관관계를 둘 다 분석하였다. NaN의 존재 여부와 사기의 상관관계를 분석하기 위해 NaN이 존재하는 col들을 존재 여부에 따라 one hot encoding 한 후 분석한 결과 V138~278은 V169하나로 압축이 가능하며 V1~V11 또한 V1로 압축이 가능함을 발견했다. 나머지 col들은 유의미한 상관관계가 없었다. 다음으로 값 자체와 사기의 상관관계를 찾기 위해서 NaN을 imputation 해 준 후 상관관계를 분석했다. 구체적으로 NaN을 median, mean으로 각각 imputation 한 후 상관관계가 높게 나오는 방법을 col 별로 구분하여 채택했다. 이후 상관관계가 0.05가 넘는 col만을 남겼고 PCA를 통해 총합 V에서 도출된 134개의 행을 45개로 축소하였다
 
 # 활용 기법 및 개념들
 
@@ -200,3 +208,15 @@ PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
 ##### Reference
 https://ratsgo.github.io/machine%20learning/2017/04/24/PCA/
 https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
+
+## 한계와 반성
+
+### 데이터 전처리 과정에서의 한계 
+1. 데이터를 팀원들과 분할해서 전처리한 후 통합 과정에서 PCA를 전체 데이터에 대해서 진행하지 않았다. PCA는 각자 진행할 필요가 없다.
+2. D, M 항목들을 더 자세히 처리할 수 있었다. 전처리 과정에서 사용한 기법들을 서로 공유하거나 한 사람이 총괄할 필요가 있다.
+3. 전처리를 잘 해 놓고도 최종 데이터셋으로 통합하는 과정에서 발생했다고 추정되는 오류로 인해 사용하지 못한 col들이 있다. 전처리에 너무 많은 시간을 소모하여 오류를 수정할 시간이 없었던 것으로 판단된다.
+
+### 분석 과정에서의 한계
+1. 최종 데이터셋이 늦게 확정되어 최적의 파라미터를 찾는 효과적인 방법(grid search 등)을 
+사용하지 못했다. 전처리 과정만큼이나 중요하고 오래 걸리는 것이 분석 과정이란 점을 명심해야 한다.
+2. Smote를 사용해서 데이터의 불균형을 맞추는 것도 좋지만, 다른 방법들도 시도해 볼 수 있었다. 예를 들어 부족한 사기 데이터에 대해 undersampling을 진행한 후, 모든 비사기 데이터를 고려할 수 있도록 때까지 데이터셋을 여러개 만드는 방법 등이 있다. 
