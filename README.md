@@ -6,7 +6,7 @@ final data : final_train_merged.csv, final_test_merged.csv, pca_test_all_c_fraud
 # 목차
 1. 데이터 전처리 과정
 2. 활용 기법 및 개념
-3. 한계와 
+3. 한계와 반성
 
 # 데이터 전처리 과정
 
