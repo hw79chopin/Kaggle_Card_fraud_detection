@@ -229,14 +229,14 @@ XGboost는 학습 시간이 오래 걸린다. Grid search를 통해 최적의 �
 xgboost와 lgbm의 차이
 
 ### 주요 hyper parameter
--n_estimators : default=100, 반복하려는 트리의 갯수
--learning)rate : 0~1사이 값 지정. gradient descent에서 얼마나 움직일 것인지 설정한다. 간단히 학습률이라고 생각하면 된다.
--max_depth : default=-1, 최대 깊이를 조절
--min_child_samples : default=20, leaf node로 분류되기 위한 최소 데이터 수
--num_leaves : default=31, one tree가 가잘 수 있는 leaf 갯수
--boost : default=gbdt, gbdt는 gradient descent를 의미. rt는 random forest
--reg_lambda : L2 규제 적용
--leg_alpha : L1 규제 
+1. n_estimators : default=100, 반복하려는 트리의 갯수
+2. learning)rate : 0~1사이 값 지정. gradient descent에서 얼마나 움직일 것인지 설정한다. 간단히 학습률이라고 생각하면 된다.
+3. max_depth : default=-1, 최대 깊이를 조절
+4. min_child_samples : default=20, leaf node로 분류되기 위한 최소 데이터 수
+5. num_leaves : default=31, one tree가 가잘 수 있는 leaf 갯수
+6. boost : default=gbdt, gbdt는 gradient descent를 의미. rt는 random forest
+7. reg_lambda : L2 규제 적용
+8. leg_alpha : L1 규제 
 
 출처
 * https://lsjsj92.tistory.com/525
