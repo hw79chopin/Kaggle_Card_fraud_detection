@@ -210,11 +210,20 @@ https://ratsgo.github.io/machine%20learning/2017/04/24/PCA/
 https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
 
 ## LGBM(Light GBM)
+LGBM은 GBM의 한 종류.
 GBM(Gradient Boosting Algorithm): 회귀분석 또는 분류 분석을 수행할 수 있는 예측모형. 예측모형의 앙상블 방법론 중 부스팅 계열에 속하는 알고리즘.
 LightGBM, CatBoost, XGBoost : Gradient Boosting Algorithm을 구현한 패키지
 
 ![image](https://user-images.githubusercontent.com/46089347/67144313-20cd4480-f2b0-11e9-8e39-bc825e8f1366.png)
 
+### Boosting의 개념은 약한 분류기를 결합하여 강한 분류기를 만드는 과정
+분류기 A, B, C 가 있고, 각각이 0.2 정도의 accuracy를 보여준다고 하면 A, B, C를 결합하여 더 높은 정확도(약 0.7의 accuracy)를 얻는 게 앙상블 알고리즘의 기본 원리다. Boosting은 이 과정을 순차적으로 실행하는데 A 분류기를 만든 후, 그 정보를 바탕으로 B 분류기를 만들고, 다시 그 정보를 바탕으로 C 분류기를 만든다. 결과적으로는 만들어진 모든 분류기를 결합해 최종 모델을 만든다.
+
+### XGBoost vs. LGBM
+XGboost는 학습 시간이 오래 걸린다. Grid search를 통해 최적의 파라미터를 탐색한다면 학습 시간의 효율을 고려해야 한다. LGBM은 XGBoost보다 학습 시간이 덜 걸리며 메모리 사용도 작다는 장점이 있다. 둘 다 좋은 알고리즘이므로 특별히 어느 하나가 좋다고 할 수는 없다. 단, LGBM은 데이터셋의 과적합을 조심해야 하는데, 1만개 이하의 데이터셋은 과적합 위험이 있다. 
+
+### LGBM의 leaf wise 방식
+일반적인 GBM 패키지와 다르게 LGBM은 leaf wise방식을 사용한다. 기존의 트리기반 알고리즘은 트리의 깊이를 줄이기 위해 level wise(균형 트리 분할)를 사용한다면 LGBM은 leaf wise(리프 중심 트리 분할)를 이용한다. 앞의 level wise는 트리를 균형적으로 분할하는데 균형작업이 추가로 들어간다고 보면 된다. LGBM은 균형적으로 트리를 분할하지 않는 대신 최대 손실값(max delta loss)을 갖는 트리 노드를 계속 분할한다. 이 때문에 비대칭적으로 어느 트리는 깊이가 아주 깊어지게 된다. 이 방식은 균형 트리 분할보다 오류를 최소화할 수 있다. 
 출처: https://3months.tistory.com/368 [Deep Play]
 
 ## 한계와 반성
