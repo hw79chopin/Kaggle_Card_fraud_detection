@@ -224,7 +224,24 @@ XGboost는 학습 시간이 오래 걸린다. Grid search를 통해 최적의 �
 
 ### LGBM의 leaf wise 방식
 일반적인 GBM 패키지와 다르게 LGBM은 leaf wise방식을 사용한다. 기존의 트리기반 알고리즘은 트리의 깊이를 줄이기 위해 level wise(균형 트리 분할)를 사용한다면 LGBM은 leaf wise(리프 중심 트리 분할)를 이용한다. 앞의 level wise는 트리를 균형적으로 분할하는데 균형작업이 추가로 들어간다고 보면 된다. LGBM은 균형적으로 트리를 분할하지 않는 대신 최대 손실값(max delta loss)을 갖는 트리 노드를 계속 분할한다. 이 때문에 비대칭적으로 어느 트리는 깊이가 아주 깊어지게 된다. 이 방식은 균형 트리 분할보다 오류를 최소화할 수 있다. 
-출처: https://3months.tistory.com/368 [Deep Play]
+
+![image](https://user-images.githubusercontent.com/46089347/67144522-3479aa80-f2b2-11e9-9a17-1206005286f6.png)
+xgboost와 lgbm의 차이
+
+### 주요 hyper parameter
+-n_estimators : default=100, 반복하려는 트리의 갯수
+-learning)rate : 0~1사이 값 지정. gradient descent에서 얼마나 움직일 것인지 설정한다. 간단히 학습률이라고 생각하면 된다.
+-max_depth : default=-1, 최대 깊이를 조절
+-min_child_samples : default=20, leaf node로 분류되기 위한 최소 데이터 수
+-num_leaves : default=31, one tree가 가잘 수 있는 leaf 갯수
+-boost : default=gbdt, gbdt는 gradient descent를 의미. rt는 random forest
+-reg_lambda : L2 규제 적용
+-leg_alpha : L1 규제 
+
+출처
+* https://lsjsj92.tistory.com/525
+* https://3months.tistory.com/368 [Deep Play]
+
 
 ## 한계와 반성
 
