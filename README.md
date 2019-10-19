@@ -209,6 +209,14 @@ PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
 https://ratsgo.github.io/machine%20learning/2017/04/24/PCA/
 https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
 
+## LGBM(Light GBM)
+GBM(Gradient Boosting Algorithm): 회귀분석 또는 분류 분석을 수행할 수 있는 예측모형. 예측모형의 앙상블 방법론 중 부스팅 계열에 속하는 알고리즘.
+LightGBM, CatBoost, XGBoost : Gradient Boosting Algorithm을 구현한 패키지
+
+
+
+출처: https://3months.tistory.com/368 [Deep Play]
+
 ## 한계와 반성
 
 ### 데이터 전처리 과정에서의 한계 
