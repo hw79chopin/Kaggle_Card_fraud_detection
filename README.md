@@ -213,7 +213,7 @@ https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
 GBM(Gradient Boosting Algorithm): 회귀분석 또는 분류 분석을 수행할 수 있는 예측모형. 예측모형의 앙상블 방법론 중 부스팅 계열에 속하는 알고리즘.
 LightGBM, CatBoost, XGBoost : Gradient Boosting Algorithm을 구현한 패키지
 
-
+![image](https://user-images.githubusercontent.com/46089347/67144313-20cd4480-f2b0-11e9-8e39-bc825e8f1366.png)
 
 출처: https://3months.tistory.com/368 [Deep Play]
 
